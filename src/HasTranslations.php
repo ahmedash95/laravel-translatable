@@ -28,7 +28,7 @@ trait HasTranslations
      *
      * @return mixed
      */
-    public function translate(string $key, string $locale = '')
+    public function translate(string $key, string $locale = null)
     {
         return $this->getTranslation($key, $locale);
     }
