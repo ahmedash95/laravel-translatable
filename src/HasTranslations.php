@@ -28,7 +28,7 @@ trait HasTranslations
      *
      * @return mixed
      */
-    public function translate(string $key, string $locale = null)
+    public function translate($key, $locale = null)
     {
         return $this->getTranslation($key, $locale);
     }
@@ -39,7 +39,7 @@ trait HasTranslations
      *
      * @return mixed
      */
-    public function getTranslation(string $key, string $locale)
+    public function getTranslation($key, $locale)
     {
         $locale = $this->normalizeLocale($key, $locale);
 
@@ -68,7 +68,7 @@ trait HasTranslations
      *
      * @return $this
      */
-    public function setTranslation(string $key, string $locale, $value)
+    public function setTranslation($key, $locale, $value)
     {
         $this->guardAgainstUntranslatableAttribute($key);
 
@@ -96,7 +96,7 @@ trait HasTranslations
      *
      * @return $this
      */
-    public function setTranslations(string $key, array $translations)
+    public function setTranslations($key, array $translations)
     {
         $this->guardAgainstUntranslatableAttribute($key);
 
@@ -113,7 +113,7 @@ trait HasTranslations
      *
      * @return $this
      */
-    public function forgetTranslation(string $key, string $locale)
+    public function forgetTranslation($key, $locale)
     {
         $translations = $this->getTranslations($key);
 
@@ -124,24 +124,24 @@ trait HasTranslations
         return $this;
     }
 
-    public function getTranslatedLocales(string $key)
+    public function getTranslatedLocales($key)
     {
         return array_keys($this->getTranslations($key));
     }
 
-    public function isTranslatableAttribute(string $key)
+    public function isTranslatableAttribute($key)
     {
         return in_array($key, $this->getTranslatableAttributes());
     }
 
-    protected function guardAgainstUntranslatableAttribute(string $key)
+    protected function guardAgainstUntranslatableAttribute($key)
     {
         if (!$this->isTranslatableAttribute($key)) {
             throw AttributeIsNotTranslatable::make($key, $this);
         }
     }
 
-    protected function normalizeLocale(string $key, string $locale)
+    protected function normalizeLocale($key, $locale)
     {
         if (in_array($locale, $this->getTranslatedLocales($key))) {
             return $locale;
