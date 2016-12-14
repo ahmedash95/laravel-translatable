@@ -58,7 +58,7 @@ abstract class TestCase extends Orchestra
         File::makeDirectory($directory);
     }
 
-    public function getTempDirectory() : string
+    public function getTempDirectory()
     {
         return __DIR__.'/temp';
     }
