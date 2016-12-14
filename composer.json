@@ -1,5 +1,5 @@
 {
-    "name": "ah/laravel-translatable",
+    "name": "ahmedash95/laravel-translatable",
     "description": "A trait to make an Eloquent model hold translations",
     "keywords": [
         "spatie",
